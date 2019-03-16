@@ -51,7 +51,7 @@
 					<input type="email" class="form-control" id="email" placeholder="Masukkan email" required name="email">
 				</div>
 				<input type="submit" name="tambah" value="Tambah" class="btn btn-primary">
-				<input type="button" name="loadData" value="Load data" class="btn btn-primary" onclick="window.location.reload(true);">
+				<input type="button" name="loadData" value="Load data" class="btn btn-primary" onclick="window.location.href='index.php';">
 			</form>
 		</div>
 		<div class="container mt-4" id="data">
