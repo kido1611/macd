@@ -42,22 +42,27 @@
 						<th scope="col">Email</th>
 					</tr>
 				</thead>
+				<?php
+					$sql = "select * from [user]";
+					$query = $conn->query($sql);
+					$result = $query->fetchAll();
+				?>
 				<tbody>
-					<tr>
-						<th scope="row">1</th>
-						<td>Mark</td>
-						<td>Otto</td>
-					</tr>
-					<tr>
-						<th scope="row">2</th>
-						<td>Jacob</td>
-						<td>Thornton</td>
-					</tr>
-					<tr>
-						<th scope="row">3</th>
-						<td>Larry</td>
-						<td>the Bird</td>
-					</tr>
+					<?php
+						if(count($result) > 0){
+							$i = 1;
+							foreach($result as $user) {
+								echo "<tr><td>".$i."</td>";
+								echo "<td>".$user['nama']."</td>";
+								echo "<td>".$user['email']."</td></tr>";
+								$i++;
+							}
+						}
+						else
+						{
+							echo "<tr><td colspan=\"3\" >Tidak ada data</td></tr>";
+						}
+					?>
 				</tbody>
 			</table>
 		</div>
