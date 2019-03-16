@@ -14,7 +14,7 @@
 		$nama = $_POST['nama'];
 		$email = $_POST['email'];
 
-		$sql = "insert into [user](nama, email, created_at) values('$nama', '$email', GETDATE())";
+		$sql = "insert into [user](nama, email, created_at) values('$nama', '$email', switchoffset(GETUTCDATE(),'+07:00'))";
 		$query = $conn->query($sql);
 	}
 ?>
