@@ -8,11 +8,16 @@
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     } catch(Exception $e) {
         echo "Failed: " . $e;
-    }
+	}
+	
+	if(isset($_POST['tambah'])){
+		$nama = $_POST['nama'];
+		$email = $_POST['email'];
 
+		$sql = "insert into [user](nama, email, created_at) values('$nama', '$email', GETDATE())";
+		$query = $conn->query($sql);
+	}
 ?>
-
-
 <!doctype html>
 <html lang="en">
 	<head>
@@ -31,8 +36,20 @@
 		</div>
 		<div class="container" id="registrasi">
 			<h4>Registrasi data</h4>
+			<form method="post" enctype="multipart/form-data" action="index.php">
+				<div class="form-group">
+					<label for="nama">Nama</label>
+					<input type="text" class="form-control" id="nama" placeholder="Masukkan nama" required name="nama">
+				</div>
+				<div class="form-group">
+					<label for="email">Email</label>
+					<input type="email" class="form-control" id="email" placeholder="Masukkan email" required name="email">
+				</div>
+				<input type="submit" name="tambah" value="Tambah" class="btn btn-primary">
+				<input type="button" name="loadData" value="Load data" class="btn btn-primary" onclick="window.location.reload(true);">
+			</form>
 		</div>
-		<div class="container" id="data">
+		<div class="container mt-4" id="data">
 			<h4>List data</h4>
 			<table class="table table-stripped">
 				<thead>
