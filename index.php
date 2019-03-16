@@ -40,6 +40,7 @@
 						<th scope="col">#</th>
 						<th scope="col">Nama</th>
 						<th scope="col">Email</th>
+						<th scope="col">Tanggal tambah</th>
 					</tr>
 				</thead>
 				<?php
@@ -54,13 +55,14 @@
 							foreach($result as $user) {
 								echo "<tr><td>".$i."</td>";
 								echo "<td>".$user['nama']."</td>";
-								echo "<td>".$user['email']."</td></tr>";
+								echo "<td>".$user['email']."</td>";
+								echo "<td>".$user['created_at']."</td></tr>";
 								$i++;
 							}
 						}
 						else
 						{
-							echo "<tr><td colspan=\"3\" >Tidak ada data</td></tr>";
+							echo "<tr><td colspan=\"4\" >Tidak ada data</td></tr>";
 						}
 					?>
 				</tbody>
