@@ -10,7 +10,12 @@
         echo "Failed: " . $e;
 	}
 	
-	if(isset($_POST['tambah'])){
+	if(isset($_POST['loadData']))
+	{
+
+	}
+	else if(isset($_POST['tambah']))
+	{
 		$nama = $_POST['nama'];
 		$email = $_POST['email'];
 
