@@ -61,7 +61,7 @@
 					</tr>
 				</thead>
 				<?php
-					$sql = "select * from [user]";
+					$sql = "select * from [user] order by id desc";
 					$query = $conn->query($sql);
 					$result = $query->fetchAll();
 				?>
