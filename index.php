@@ -59,6 +59,7 @@ echo "<br />";
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
                         <th scope="col">URL</th>
+                        <th scope="col">Size</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,7 +69,9 @@ echo "<br />";
                             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
                             foreach ($result->getBlobs() as $blob)
                             {
-                                echo "<tr><td>$i</td><td><a href=\"".$blob->getUrl()."\">".$blob->getName()."</a></td><td>".$blob->getUrl()."</td></tr>";
+                                $propResult = $blobClient->getBlobProperties($containerName, $blob->getName(), null);
+
+                                echo "<tr><td>$i</td><td><a href=\"".$blob->getUrl()."\">".$blob->getName()."</a></td><td>".$blob->getUrl()."</td><td>".$propResult->getProperties()->getContentLength()."</td></tr>";
                                 $i++;
                             }
                         
